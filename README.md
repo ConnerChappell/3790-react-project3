@@ -1,6 +1,6 @@
 # DGM-3790 Project 3 React App:
 
-<!-- Deployed Site: [https://3790-react-project3-conner-chappell.netlify.app/) -->
+Deployed Site: [https://3790-react-project3-conner-chappell.netlify.app/)
 
 ### Features
 
