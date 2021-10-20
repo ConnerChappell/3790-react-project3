@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { teams } from '../data/teams'
 import TeamCard from './TeamCard'
+import { useTeamContext } from '../contexts/TeamContext'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Modal from '@mui/material/Modal'
@@ -25,6 +25,8 @@ const TeamContainer = () => {
     const [renderTeamInfo, setRenderTeamInfo] = React.useState([])
     // use state for adding favorites
     const [favorites, setFavorites] = React.useState([])
+    // extracts the team data from useTeamContext
+    const teamData = useTeamContext()
 
     // Add favorites function
     const addToFavorites = (team) => {
@@ -103,7 +105,7 @@ const TeamContainer = () => {
                 </Box>
             </Box>
 
-            {teams.map((team) => {
+            {teamData.englishTeams.map((team) => {
                 // Passes down team object as prop and handleOpen function as prop
                 return (
                     <TeamCard
