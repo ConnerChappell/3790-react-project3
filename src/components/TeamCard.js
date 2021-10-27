@@ -55,7 +55,7 @@ const TeamCard = (props) => {
             />
             <CardContent>
                 <Typography
-                    variant="h4"
+                    variant="h5"
                     component="h2"
                     sx={{
                         mx: 'auto',

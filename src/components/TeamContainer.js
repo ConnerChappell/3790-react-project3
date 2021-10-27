@@ -117,6 +117,18 @@ const TeamContainer = () => {
                 )
             })}
 
+            {teamData.germanTeams.map((team) => {
+                // Passes down team object as prop and handleOpen function as prop
+                return (
+                    <TeamCard
+                        key={team.idTeam}
+                        addToFavoritesFunction={addToFavorites}
+                        modalFunction={handleOpen}
+                        team={{ ...team }}
+                    />
+                )
+            })}
+
             <Modal open={open} onClose={handleClose}>
                 <Box sx={modalStyle}>
                     {renderTeamInfo.map((team) => {
