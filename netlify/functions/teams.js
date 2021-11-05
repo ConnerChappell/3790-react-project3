@@ -6,7 +6,8 @@ exports.handler = async function (event, context) {
     console.log(event)
     console.log(context)
     try {
-        const response = await axios.get(`https://www.thesportsdb.com/api/v1/json/${apiKey}/search_all_teams.php?l=English%20Premier%20League`)
+        const { league } = event.queryStringParameters
+        const response = await axios.get(`https://www.thesportsdb.com/api/v1/json/${apiKey}/${league}`)
         return {
             statusCode: 200,
             body: JSON.stringify(response.data)

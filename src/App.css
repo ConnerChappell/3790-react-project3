@@ -1,9 +1,10 @@
 /* App Styles */
 .App {
-  background-color: #00ff88;
+  /* background-color: #00ff88; */
+  background-color: #2b2c2d;
   height: 100%;
 }
-.App header {
+/* .App header {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,12 +14,12 @@
   font-size: 36px;
   height: 100px;
   background-color: #ff2882;
-}
-.App .logo {
+} */
+/* .App .logo {
   height: 50px;
   width: auto;
   margin-right: 10px;
-}
+} */
 
 /* Team Container styles */
 .team-container {
