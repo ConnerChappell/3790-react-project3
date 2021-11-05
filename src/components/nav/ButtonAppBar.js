@@ -7,11 +7,11 @@ import Button from '@mui/material/Button'
 import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
 import Modal from '@mui/material/Modal'
-import { useTeamContext } from '../../contexts/TeamContext'
+// import { useTeamContext } from '../../contexts/TeamContext'
 import LoginForm from '../login/LoginForm'
 
 const ButtonAppBar = () => {
-    const teamData = useTeamContext()
+    // const teamData = useTeamContext()
 
     const [open, setOpen] = React.useState(false)
     // Modal Functions
