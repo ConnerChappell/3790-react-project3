@@ -1,5 +1,6 @@
 import './App.css'
-import TeamContainer from './pages/TeamContainer'
+import EnglishTeamContainer from './pages/EnglishTeamContainer'
+import GermanTeamContainer from './pages/GermanTeamContainer'
 import { TeamContextProvider } from './contexts/TeamContext'
 import ButtonAppBar from './components/nav/ButtonAppBar'
 import { Route } from 'react-router-dom'
@@ -13,7 +14,8 @@ const App = () => {
                 <ButtonAppBar />
 
                 <Route path="/home"><Home /></Route>
-                <Route path="/teams"><TeamContainer /></Route>
+                <Route path="/english-premier-league"><EnglishTeamContainer /></Route>
+                <Route path="/german-bundesliga"><GermanTeamContainer /></Route>
                 <Route path="/login"><LoginForm /></Route>
             </TeamContextProvider>
         </div>

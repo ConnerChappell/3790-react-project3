@@ -18,7 +18,7 @@ const modalStyle = {
     p: 4,
 }
 
-const TeamContainer = () => {
+const GermanTeamContainer = () => {
     // use state for opening modal
     const [open, setOpen] = React.useState(false)
     // use state for rendering team info into modal
@@ -105,18 +105,6 @@ const TeamContainer = () => {
                 </Box>
             </Box>
 
-            {teamData.englishTeams.map((team) => {
-                // Passes down team object as prop and handleOpen function as prop
-                return (
-                    <TeamCard
-                        key={team.idTeam}
-                        addToFavoritesFunction={addToFavorites}
-                        modalFunction={handleOpen}
-                        team={{ ...team }}
-                    />
-                )
-            })}
-
             {teamData.germanTeams.map((team) => {
                 // Passes down team object as prop and handleOpen function as prop
                 return (
@@ -184,4 +172,4 @@ const TeamContainer = () => {
     )
 }
 
-export default TeamContainer
+export default GermanTeamContainer
