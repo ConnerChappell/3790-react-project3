@@ -2,7 +2,7 @@
 .App {
   /* background-color: #00ff88; */
   background-color: #2b2c2d;
-  height: 100%;
+  min-height: 100vh;
 }
 /* .App header {
   display: flex;

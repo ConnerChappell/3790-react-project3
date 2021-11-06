@@ -6,21 +6,22 @@ import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
-import Modal from '@mui/material/Modal'
+// import Modal from '@mui/material/Modal'
 // import { useTeamContext } from '../../contexts/TeamContext'
-import LoginForm from '../login/LoginForm'
+// import LoginForm from '../login/LoginForm'
+import { NavLink } from 'react-router-dom'
 
 const ButtonAppBar = () => {
     // const teamData = useTeamContext()
 
-    const [open, setOpen] = React.useState(false)
-    // Modal Functions
-    const handleOpen = (team) => {
-        setOpen(true)
-    }
-    const handleClose = () => {
-        setOpen(false)
-    }
+    // const [open, setOpen] = React.useState(false)
+    // // Modal Functions
+    // const handleOpen = (team) => {
+    //     setOpen(true)
+    // }
+    // const handleClose = () => {
+    //     setOpen(false)
+    // }
 
     return (
         <>
@@ -46,16 +47,16 @@ const ButtonAppBar = () => {
                             sx={{ flexGrow: 1 }}>
                             Soccer App
                         </Typography>
-                        <Button color="inherit" onClick={handleOpen}>
-                            Login
+                        <Button color="inherit">
+                            <NavLink to="/login">Login</NavLink>
                         </Button>
                     </Toolbar>
                 </AppBar>
             </Box>
 
-            <Modal open={open}>
+            {/* <Modal open={open}>
                 <LoginForm closeHandler={handleClose}/>
-            </Modal>
+            </Modal> */}
         </>
     )
 }

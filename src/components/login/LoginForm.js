@@ -1,6 +1,7 @@
 import { Box, Button, TextField } from '@mui/material'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
+import { useHistory } from 'react-router-dom'
 
 const modalStyle = {
     position: 'absolute',
@@ -15,7 +16,11 @@ const modalStyle = {
 }
 
 const LoginForm = (props) => {
-    const { closeHandler } = props
+    const history = useHistory()
+
+    const handleClose = () => {
+        history.push('/home')
+    }
 
     return (
         <Box sx={modalStyle}>
@@ -44,7 +49,7 @@ const LoginForm = (props) => {
                         setErrors({ submit: err.message })
                         setSubmitting(false)
                     } finally {
-                        closeHandler()
+                        handleClose()
                     }
                 }}>
                 {({
@@ -64,6 +69,7 @@ const LoginForm = (props) => {
                             name="email"
                             type="email"
                             variant="outlined"
+                            color="grey"
                             // value={values.email}
                             error={Boolean(touched.email && errors.email)}
                             onBlur={handleBlur}
@@ -77,6 +83,7 @@ const LoginForm = (props) => {
                             name="password"
                             type="password"
                             variant="outlined"
+                            color="grey"
                             // value={values.password}
                             error={Boolean(touched.password && errors.password)}
                             onBlur={handleBlur}
@@ -84,6 +91,13 @@ const LoginForm = (props) => {
                             helperText={touched.password && errors.password}/>
 
                         <Button
+                            sx={{
+                                backgroundColor: "#d00",
+                                ":hover": {
+                                    backgroundColor: "#d00",
+                                    filter: "brightness(95%)",
+                                },
+                            }}
                             color="primary"
                             size="large"
                             variant="contained"

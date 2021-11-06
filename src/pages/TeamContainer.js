@@ -1,5 +1,5 @@
 import * as React from 'react'
-import TeamCard from './TeamCard'
+import TeamCard from '../components/TeamCard'
 import { useTeamContext } from '../contexts/TeamContext'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
