@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { useHistory } from 'react-router-dom'
 import '../App.css'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
@@ -10,20 +11,19 @@ import InfoIcon from '@mui/icons-material/Info'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 
 const TeamCard = (props) => {
-    const [loadTeamInfo, setLoadTeamInfo] = React.useState(false)
-
     const [favorite, setFavorite] = React.useState(false)
+    const history = useHistory()
+    const { team } = props
 
     // Function that handles favorite click
     const handleFavoriteClick = () => {
         setFavorite(!favorite)
-        props.addToFavoritesFunction(props.team)
+        props.addToFavoritesFunction(team)
     }
 
-    // Handles modal function prop from parent which opens modal from click event listener
+    // function that handles info click
     const handleInfoClick = () => {
-        setLoadTeamInfo(loadTeamInfo)
-        props.modalFunction(props.team)
+        history.push(`/team/${team.idTeam}`)
     }
 
     return (

@@ -4,11 +4,13 @@ import axios from 'axios'
 const TeamContext = React.createContext({
     englishTeams: [],
     germanTeams: [],
+    allTeams: [],
 })
 
 export const TeamContextProvider = (props) => {
     const [englishTeams, setEnglishTeams] = React.useState([])
     const [germanTeams, setGermanTeams] = React.useState([])
+    const [allTeams, setAllTeams] = React.useState([])
 
     React.useEffect(() => {
         // first define the async function
@@ -24,6 +26,7 @@ export const TeamContextProvider = (props) => {
 
                 setEnglishTeams(englishTeams)
                 setGermanTeams(germanTeams)
+                setAllTeams([...englishTeams, ...germanTeams])
             } catch (error) {
                 console.log(error)
             }
@@ -37,6 +40,7 @@ export const TeamContextProvider = (props) => {
             value={{
                 englishTeams,
                 germanTeams,
+                allTeams,
             }}>
             {props.children}
         </TeamContext.Provider>
