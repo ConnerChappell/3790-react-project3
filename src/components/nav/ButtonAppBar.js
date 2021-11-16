@@ -47,10 +47,14 @@ const ButtonAppBar = () => {
                 <ListItem button onClick={() => handleNavChoice('home')}>
                     <ListItemText primary="Home" />
                 </ListItem>
-                <ListItem button onClick={() => handleNavChoice('english-premier-league')}>
+                <ListItem
+                    button
+                    onClick={() => handleNavChoice('english-premier-league')}>
                     <ListItemText primary="English Premier League" />
                 </ListItem>
-                <ListItem button onClick={() => handleNavChoice('german-bundesliga')}>
+                <ListItem
+                    button
+                    onClick={() => handleNavChoice('german-bundesliga')}>
                     <ListItemText primary="German Bundesliga" />
                 </ListItem>
             </List>
@@ -76,14 +80,23 @@ const ButtonAppBar = () => {
                             onClick={toggleDrawer}>
                             <MenuIcon />
                         </IconButton>
+
                         <Typography
                             variant="h6"
                             component="div"
                             sx={{ flexGrow: 1 }}>
                             Soccer App
                         </Typography>
+
                         <Button color="inherit">
-                            <NavLink to="/login">Login</NavLink>
+                            <NavLink
+                                to="/login"
+                                style={{
+                                    textDecoration: 'none',
+                                    color: '#fff',
+                                }}>
+                                Login
+                            </NavLink>
                         </Button>
                     </Toolbar>
                 </AppBar>
