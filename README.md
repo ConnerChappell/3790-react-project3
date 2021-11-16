@@ -1,4 +1,4 @@
-# DGM-3790 Project 3 React App:
+# DGM-3790 React App Project:
 
 Deployed Site: https://3790-react-soccer-app-conner-chappell.netlify.app/
 
