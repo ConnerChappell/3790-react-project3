@@ -7,20 +7,21 @@ import Button from '@mui/material/Button'
 import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
 import SportsSoccerIcon from '@mui/icons-material/SportsSoccer'
+import HomeIcon from '@mui/icons-material/Home'
 import {
     Drawer,
     List,
     ListItem,
     ListItemIcon,
     ListItemText,
+    Divider,
 } from '@mui/material'
-import Divider from '@mui/material/Divider'
-// import { useTeamContext } from '../../contexts/TeamContext'
 import { NavLink, useHistory } from 'react-router-dom'
+import { useIdentityContext } from 'react-netlify-identity-gotrue'
 
 const ButtonAppBar = () => {
-    // const teamData = useTeamContext()
     const history = useHistory()
+    const identity = useIdentityContext()
     const [isOpen, setIsOpen] = React.useState(false)
 
     const toggleDrawer = () => {
@@ -33,30 +34,43 @@ const ButtonAppBar = () => {
     }
 
     const drawerItemList = () => (
-        <Box sx={{ width: 250 }} role="presentation">
+        <Box sx={{ width: 275 }} role="presentation">
             <List>
                 <ListItem>
-                    <ListItemIcon>
-                        <SportsSoccerIcon />
-                    </ListItemIcon>
                     <ListItemText primary="Menu" />
                 </ListItem>
-            </List>
-            <Divider />
-            <List>
+                <Divider />
                 <ListItem button onClick={() => handleNavChoice('home')}>
+                    <ListItemIcon>
+                        <HomeIcon />
+                    </ListItemIcon>
                     <ListItemText primary="Home" />
                 </ListItem>
-                <ListItem
-                    button
-                    onClick={() => handleNavChoice('english-premier-league')}>
-                    <ListItemText primary="English Premier League" />
-                </ListItem>
-                <ListItem
-                    button
-                    onClick={() => handleNavChoice('german-bundesliga')}>
-                    <ListItemText primary="German Bundesliga" />
-                </ListItem>
+
+                {identity.user && (
+                    <>
+                        <ListItem
+                            button
+                            onClick={() =>
+                                handleNavChoice('english-premier-league')
+                            }>
+                            <ListItemIcon>
+                                <SportsSoccerIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="English Premier League" />
+                        </ListItem>
+                        <ListItem
+                            button
+                            onClick={() =>
+                                handleNavChoice('german-bundesliga')
+                            }>
+                            <ListItemIcon>
+                                <SportsSoccerIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="German Bundesliga" />
+                        </ListItem>
+                    </>
+                )}
             </List>
         </Box>
     )
@@ -88,23 +102,53 @@ const ButtonAppBar = () => {
                             Soccer App
                         </Typography>
 
-                        <NavLink
-                            to="/signup"
-                            style={{
-                                textDecoration: 'none',
-                                color: '#fff',
-                            }}>
-                            <Button color="inherit">Signup</Button>
-                        </NavLink>
+                        {!identity.user && !identity.provisionalUser && (
+                            <>
+                                <NavLink
+                                    to="/signup"
+                                    style={{
+                                        textDecoration: 'none',
+                                        color: '#fff',
+                                    }}>
+                                    <Button color="inherit">Signup</Button>
+                                </NavLink>
 
-                        <NavLink
-                            to="/login"
-                            style={{
-                                textDecoration: 'none',
-                                color: '#fff',
-                            }}>
-                            <Button color="inherit">Login</Button>
-                        </NavLink>
+                                <NavLink
+                                    to="/login"
+                                    style={{
+                                        textDecoration: 'none',
+                                        color: '#fff',
+                                    }}>
+                                    <Button color="inherit">Login</Button>
+                                </NavLink>
+                            </>
+                        )}
+
+                        {identity.provisionalUser && (
+                                <NavLink
+                                    to="/login"
+                                    style={{
+                                        textDecoration: 'none',
+                                        color: '#fff',
+                                    }}>
+                                    <Button color="inherit">Login</Button>
+                                </NavLink>
+                        )}
+
+                        {identity.user && (
+                                <NavLink
+                                    to="/"
+                                    style={{
+                                        textDecoration: 'none',
+                                        color: '#fff',
+                                    }}>
+                                    <Button
+                                        color="inherit"
+                                        onClick={identity.lgout}>
+                                        Logout
+                                    </Button>
+                                </NavLink>
+                        )}
                     </Toolbar>
                 </AppBar>
             </Box>
