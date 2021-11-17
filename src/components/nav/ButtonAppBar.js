@@ -144,7 +144,7 @@ const ButtonAppBar = () => {
                                     }}>
                                     <Button
                                         color="inherit"
-                                        onClick={identity.lgout}>
+                                        onClick={identity.logout}>
                                         Logout
                                     </Button>
                                 </NavLink>
