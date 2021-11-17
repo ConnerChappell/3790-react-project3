@@ -20,7 +20,7 @@ const SignupForm = (props) => {
     const history = useHistory()
     const identity = useIdentityContext()
     const handleClose = () => {
-        history.push('/home')
+        history.push('/')
     }
 
     return (

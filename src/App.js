@@ -8,7 +8,7 @@ import SignupForm from './components/login/SignupForm'
 import LoginForm from './components/login/LoginForm'
 import { TeamContextProvider } from './contexts/TeamContext'
 import NetlifyIdentityContext from 'react-netlify-identity-gotrue'
-import { Route, Redirect, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { Box, CircularProgress } from '@mui/material'
 
 const EnglishPremierLeagePage = React.lazy(() =>
@@ -38,9 +38,6 @@ const App = () => {
                         }>
                         <Switch>
                             <Route path="/" exact>
-                                <Redirect to="/home" />
-                            </Route>
-                            <Route path="/home">
                                 <Home />
                             </Route>
                             <Route path="/english-premier-league">
