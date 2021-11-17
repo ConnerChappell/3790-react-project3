@@ -88,16 +88,23 @@ const ButtonAppBar = () => {
                             Soccer App
                         </Typography>
 
-                        <Button color="inherit">
-                            <NavLink
-                                to="/login"
-                                style={{
-                                    textDecoration: 'none',
-                                    color: '#fff',
-                                }}>
-                                Login
-                            </NavLink>
-                        </Button>
+                        <NavLink
+                            to="/signup"
+                            style={{
+                                textDecoration: 'none',
+                                color: '#fff',
+                            }}>
+                            <Button color="inherit">Signup</Button>
+                        </NavLink>
+
+                        <NavLink
+                            to="/login"
+                            style={{
+                                textDecoration: 'none',
+                                color: '#fff',
+                            }}>
+                            <Button color="inherit">Login</Button>
+                        </NavLink>
                     </Toolbar>
                 </AppBar>
             </Box>

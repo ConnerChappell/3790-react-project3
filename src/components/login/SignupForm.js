@@ -16,7 +16,7 @@ const modalStyle = {
     p: 4,
 }
 
-const LoginForm = (props) => {
+const SignupForm = (props) => {
     const history = useHistory()
     const identity = useIdentityContext()
     const handleClose = () => {
@@ -27,10 +27,15 @@ const LoginForm = (props) => {
         <Box sx={modalStyle}>
             <Formik
                 initialValues={{
+                    userName: 'First Last',
                     email: 'foo@example.com',
                     password: 'Password123!',
                 }}
                 validationSchema={Yup.object().shape({
+                    userName: Yup.string()
+                        .min(4, 'Must be at least 4 characters')
+                        .max(30, 'Must be less than 30 characters')
+                        .required('User Name is required'),
                     email: Yup.string()
                         .email('Must be a valid email')
                         .max(255)
@@ -44,9 +49,12 @@ const LoginForm = (props) => {
                     try {
                         setStatus({ success: true })
                         setSubmitting(false)
-                        await identity.login({
+                        await identity.signup({
                             email: value.email,
-                            password: value.password
+                            password: value.password,
+                            user_metadata: {
+                                full_name: value.userName
+                            }
                         }).then(() => {
                             handleClose()
                             console.log("Successfully submitted!")
@@ -56,8 +64,6 @@ const LoginForm = (props) => {
                         setStatus({ success: false })
                         setErrors({ submit: err.message })
                         setSubmitting(false)
-                    } finally {
-                        handleClose()
                     }
                 }}>
                 {({
@@ -70,6 +76,20 @@ const LoginForm = (props) => {
                     touched,
                 }) => (
                     <form noValidate onSubmit={handleSubmit}>
+                        <TextField
+                            fullWidth
+                            label="User Name"
+                            margin="normal"
+                            name="userName"
+                            type="text"
+                            variant="outlined"
+                            color="grey"
+                            // value={values.userName}
+                            error={Boolean(touched.userName && errors.userName)}
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                            helperText={touched.userName && errors.userName}/>
+
                         <TextField
                             fullWidth
                             label="Email Address"
@@ -111,7 +131,7 @@ const LoginForm = (props) => {
                             variant="contained"
                             type="submit"
                             disabled={isSubmitting}>
-                            Login
+                            Sign Up
                         </Button>
                     </form>
                 )}
@@ -120,4 +140,4 @@ const LoginForm = (props) => {
     )
 }
 
-export default LoginForm
+export default SignupForm
