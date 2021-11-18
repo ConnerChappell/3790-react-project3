@@ -103,6 +103,17 @@ const ButtonAppBar = () => {
                             </ListItemIcon>
                             <ListItemText primary="French Ligue 1" />
                         </ListItem>
+
+                        <ListItem
+                            button
+                            onClick={() =>
+                                handleNavChoice('major-league-soccer', true)
+                            }>
+                            <ListItemIcon>
+                                <SportsSoccerIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Major League Soccer" />
+                        </ListItem>
                     </>
                 )}
             </List>

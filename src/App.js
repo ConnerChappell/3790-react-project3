@@ -16,6 +16,7 @@ const GermanBundesligaPage = React.lazy(() => import('./pages/GermanBundesligaPa
 const SpanishLaLigaPage = React.lazy(() => import('./pages/SpanishLaLigaPage'))
 const ItalianSerieAPage = React.lazy(() => import('./pages/ItalianSerieAPage'))
 const FrenchLiguePage = React.lazy(() => import('./pages/FrenchLiguePage'))
+const MLSPage = React.lazy(() => import('./pages/MLSPage'))
 
 const App = () => {
     return (
@@ -58,6 +59,10 @@ const App = () => {
 
                             <Route path="/french-ligue-1">
                                 <FrenchLiguePage />
+                            </Route>
+
+                            <Route path="/major-league-soccer">
+                                <MLSPage />
                             </Route>
 
                             <Route path="/team/:teamId" exact>

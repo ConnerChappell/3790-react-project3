@@ -7,6 +7,7 @@ const TeamContext = React.createContext({
     spanishTeams: [],
     italianTeams: [],
     frenchTeams: [],
+    americanTeams: [],
     allTeams: [],
 })
 
@@ -16,6 +17,7 @@ export const TeamContextProvider = (props) => {
     const [spanishTeams, setSpanishTeams] = React.useState([])
     const [italianTeams, setItalianTeams] = React.useState([])
     const [frenchTeams, setFrenchTeams] = React.useState([])
+    const [americanTeams, setAmericanTeams] = React.useState([])
     const [allTeams, setAllTeams] = React.useState([])
 
     React.useEffect(() => {
@@ -26,6 +28,7 @@ export const TeamContextProvider = (props) => {
             const spanishTeamsURL = `/.netlify/functions/teams?league=search_all_teams.php?l=Spanish%20La%20Liga`
             const italianTeamsURL = `/.netlify/functions/teams?league=search_all_teams.php?l=Italian%20Serie%20A`
             const frenchTeamsURL = `/.netlify/functions/teams?league=search_all_teams.php?l=French%20Ligue%201`
+            const americanTeamsURL = `/.netlify/functions/teams?league=search_all_teams.php?l=American%20Major%20League%20Soccer`
 
             try {
                 // English teams
@@ -43,13 +46,17 @@ export const TeamContextProvider = (props) => {
                 // French teams
                 const frenchTeamsResponse = await axios.get(frenchTeamsURL)
                 const frenchTeams = await frenchTeamsResponse.data.teams
+                // American teams
+                const americanTeamsResponse = await axios.get(americanTeamsURL)
+                const americanTeams = await americanTeamsResponse.data.teams
 
                 setEnglishTeams(englishTeams)
                 setGermanTeams(germanTeams)
                 setSpanishTeams(spanishTeams)
                 setItalianTeams(italianTeams)
                 setFrenchTeams(frenchTeams)
-                setAllTeams([...englishTeams, ...germanTeams, ...spanishTeams, ...italianTeams, ...frenchTeams])
+                setAmericanTeams(americanTeams)
+                setAllTeams([...englishTeams, ...germanTeams, ...spanishTeams, ...italianTeams, ...frenchTeams, ...americanTeams])
             } catch (error) {
                 console.log(error)
             }
@@ -66,6 +73,7 @@ export const TeamContextProvider = (props) => {
                 spanishTeams,
                 italianTeams,
                 frenchTeams,
+                americanTeams,
                 allTeams,
             }}>
             {props.children}
