@@ -1,9 +1,9 @@
 import * as React from 'react'
-import GermanLogo from '../assets/german-bundesliga-logo.png'
-import GermanTeamContainer from '../components/GermanTeamContainer'
+import SpanishLogo from '../assets/spanish-la-liga-logo.png'
+import SpanishTeamContainer from '../components/SpanishTeamContainer'
 import { Box, CardMedia, Typography} from '@mui/material'
 
-const GermanBundesligaPage = () => {
+const SpanishLaLigaPage = () => {
     return (
         <div>
             <Box
@@ -19,8 +19,8 @@ const GermanBundesligaPage = () => {
                 }}>
                 <CardMedia
                     component="img"
-                    image={GermanLogo}
-                    alt="German Bundesliga Logo"
+                    image={SpanishLogo}
+                    alt="Spanish La Liga Logo"
                     sx={{
                         width: 'auto',
                         height: 60,
@@ -28,13 +28,13 @@ const GermanBundesligaPage = () => {
                     }}
                 />
                 <Typography component="h1" variant="h3">
-                    German Bundesliga
+                    Spanish La Liga
                 </Typography>
             </Box>
 
-            <GermanTeamContainer />
+            <SpanishTeamContainer />
         </div>
     )
 }
 
-export default GermanBundesligaPage
+export default SpanishLaLigaPage

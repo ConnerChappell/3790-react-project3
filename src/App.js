@@ -11,12 +11,9 @@ import NetlifyIdentityContext from 'react-netlify-identity-gotrue'
 import { Route, Switch } from 'react-router-dom'
 import { Box, CircularProgress } from '@mui/material'
 
-const EnglishPremierLeagePage = React.lazy(() =>
-    import('./pages/EnglishPremierLeaguePage')
-)
-const GermanBundesligaPage = React.lazy(() =>
-    import('./pages/GermanBundesligaPage')
-)
+const EnglishPremierLeagePage = React.lazy(() => import('./pages/EnglishPremierLeaguePage'))
+const GermanBundesligaPage = React.lazy(() => import('./pages/GermanBundesligaPage'))
+const SpanishLaLigaPage = React.lazy(() => import('./pages/SpanishLaLigaPage'))
 
 const App = () => {
     return (
@@ -40,21 +37,31 @@ const App = () => {
                             <Route path="/" exact>
                                 <Home />
                             </Route>
+
                             <Route path="/english-premier-league">
                                 <EnglishPremierLeagePage />
                             </Route>
+
                             <Route path="/german-bundesliga">
                                 <GermanBundesligaPage />
                             </Route>
+
+                            <Route path="/spanish-la-liga">
+                                <SpanishLaLigaPage />
+                            </Route>
+
                             <Route path="/team/:teamId" exact>
                                 <TeamDetail />
                             </Route>
+
                             <Route path="/signup">
                                 <SignupForm />
                             </Route>
+
                             <Route path="/login">
                                 <LoginForm />
                             </Route>
+
                             <Route path="*">
                                 <NotFound />
                             </Route>
