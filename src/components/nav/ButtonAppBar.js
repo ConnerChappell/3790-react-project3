@@ -16,7 +16,7 @@ import {
     ListItemText,
     Divider,
 } from '@mui/material'
-import { NavLink, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { useIdentityContext } from 'react-netlify-identity-gotrue'
 
 const ButtonAppBar = () => {
@@ -28,9 +28,9 @@ const ButtonAppBar = () => {
         setIsOpen(!isOpen)
     }
 
-    const handleNavChoice = (pageLink) => {
+    const handleNavChoice = (pageLink, shouldToggle) => {
         history.push(`/${pageLink}`)
-        toggleDrawer()
+        if (shouldToggle) toggleDrawer()
     }
 
     const drawerItemList = () => (
@@ -40,7 +40,7 @@ const ButtonAppBar = () => {
                     <ListItemText primary="Menu" />
                 </ListItem>
                 <Divider />
-                <ListItem button onClick={() => handleNavChoice('home')}>
+                <ListItem button onClick={() => handleNavChoice('home', true)}>
                     <ListItemIcon>
                         <HomeIcon />
                     </ListItemIcon>
@@ -52,7 +52,7 @@ const ButtonAppBar = () => {
                         <ListItem
                             button
                             onClick={() =>
-                                handleNavChoice('english-premier-league')
+                                handleNavChoice('english-premier-league', true)
                             }>
                             <ListItemIcon>
                                 <SportsSoccerIcon />
@@ -62,7 +62,7 @@ const ButtonAppBar = () => {
                         <ListItem
                             button
                             onClick={() =>
-                                handleNavChoice('german-bundesliga')
+                                handleNavChoice('german-bundesliga', true)
                             }>
                             <ListItemIcon>
                                 <SportsSoccerIcon />
@@ -104,50 +104,36 @@ const ButtonAppBar = () => {
 
                         {!identity.user && !identity.provisionalUser && (
                             <>
-                                <NavLink
-                                    to="/signup"
-                                    style={{
-                                        textDecoration: 'none',
-                                        color: '#fff',
-                                    }}>
-                                    <Button color="inherit">Signup</Button>
-                                </NavLink>
+                                <Button
+                                    color="inherit"
+                                    onClick={() =>
+                                        handleNavChoice('signup', false)
+                                    }>
+                                    Signup
+                                </Button>
 
-                                <NavLink
-                                    to="/login"
-                                    style={{
-                                        textDecoration: 'none',
-                                        color: '#fff',
-                                    }}>
-                                    <Button color="inherit">Login</Button>
-                                </NavLink>
+                                <Button
+                                    color="inherit"
+                                    onClick={() =>
+                                        handleNavChoice('login', false)
+                                    }>
+                                    Login
+                                </Button>
                             </>
                         )}
 
                         {identity.provisionalUser && (
-                                <NavLink
-                                    to="/login"
-                                    style={{
-                                        textDecoration: 'none',
-                                        color: '#fff',
-                                    }}>
-                                    <Button color="inherit">Login</Button>
-                                </NavLink>
+                            <Button
+                                color="inherit"
+                                onClick={() => handleNavChoice('login', false)}>
+                                Login
+                            </Button>
                         )}
 
                         {identity.user && (
-                                <NavLink
-                                    to="/"
-                                    style={{
-                                        textDecoration: 'none',
-                                        color: '#fff',
-                                    }}>
-                                    <Button
-                                        color="inherit"
-                                        onClick={identity.logout}>
-                                        Logout
-                                    </Button>
-                                </NavLink>
+                            <Button color="inherit" onClick={identity.logout}>
+                                Logout
+                            </Button>
                         )}
                     </Toolbar>
                 </AppBar>
