@@ -14,6 +14,7 @@ import { Box, CircularProgress } from '@mui/material'
 const EnglishPremierLeagePage = React.lazy(() => import('./pages/EnglishPremierLeaguePage'))
 const GermanBundesligaPage = React.lazy(() => import('./pages/GermanBundesligaPage'))
 const SpanishLaLigaPage = React.lazy(() => import('./pages/SpanishLaLigaPage'))
+const ItalianSerieAPage = React.lazy(() => import('./pages/ItalianSerieAPage'))
 
 const App = () => {
     return (
@@ -48,6 +49,10 @@ const App = () => {
 
                             <Route path="/spanish-la-liga">
                                 <SpanishLaLigaPage />
+                            </Route>
+
+                            <Route path="/italian-serie-a">
+                                <ItalianSerieAPage />
                             </Route>
 
                             <Route path="/team/:teamId" exact>
