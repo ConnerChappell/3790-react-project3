@@ -40,7 +40,7 @@ const ButtonAppBar = () => {
                     <ListItemText primary="Menu" />
                 </ListItem>
                 <Divider />
-                <ListItem button onClick={() => handleNavChoice('home', true)}>
+                <ListItem button onClick={() => handleNavChoice('', true)}>
                     <ListItemIcon>
                         <HomeIcon />
                     </ListItemIcon>
