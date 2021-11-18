@@ -1,14 +1,11 @@
-import { Box, Button, TextField } from '@mui/material'
+import { Box, Button, TextField, Typography } from '@mui/material'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 import { useHistory } from 'react-router-dom'
 import { useIdentityContext } from 'react-netlify-identity-gotrue'
 
 const modalStyle = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
+    margin: "2% auto",
     width: 400,
     bgcolor: 'background.paper',
     borderRadius: 1,
@@ -25,7 +22,16 @@ const LoginForm = (props) => {
 
     return (
         <>
-            <h1>Login Page</h1>
+            <Typography
+                variant="h3"
+                component="h1"
+                sx={{ display: 'flex', justifyContent: 'center', mt: 8 }}>
+                Login Page
+            </Typography>
+            <Typography color="text.secondary" sx={{display: 'flex', justifyContent: 'center', mt: 2, mx: 3}}>
+                Login to continue viewing Soccer App content!
+            </Typography>
+
             <Box sx={modalStyle}>
                 <Formik
                     initialValues={{
