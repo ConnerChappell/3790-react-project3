@@ -1,5 +1,5 @@
 import * as React from 'react'
-import FrenchLogo from '../assets/french-lique-logo.png'
+import FrenchLogo from '../assets/french-ligue-logo.png'
 import FrenchTeamContainer from '../components/FrenchTeamContainer'
 import { Box, CardMedia, Typography} from '@mui/material'
 
