@@ -11,12 +11,12 @@ import NetlifyIdentityContext from 'react-netlify-identity-gotrue'
 import { Route, Switch } from 'react-router-dom'
 import { Box, CircularProgress } from '@mui/material'
 
-const EnglishPremierLeagePage = React.lazy(() => import('./pages/EnglishPremierLeaguePage'))
-const GermanBundesligaPage = React.lazy(() => import('./pages/GermanBundesligaPage'))
-const SpanishLaLigaPage = React.lazy(() => import('./pages/SpanishLaLigaPage'))
-const ItalianSerieAPage = React.lazy(() => import('./pages/ItalianSerieAPage'))
-const FrenchLiguePage = React.lazy(() => import('./pages/FrenchLiguePage'))
-const MLSPage = React.lazy(() => import('./pages/MLSPage'))
+const EnglishPremierLeagePage = React.lazy(() => import('./pages/leagues/EnglishPremierLeaguePage'))
+const GermanBundesligaPage = React.lazy(() => import('./pages/leagues/GermanBundesligaPage'))
+const SpanishLaLigaPage = React.lazy(() => import('./pages/leagues/SpanishLaLigaPage'))
+const ItalianSerieAPage = React.lazy(() => import('./pages/leagues/ItalianSerieAPage'))
+const FrenchLiguePage = React.lazy(() => import('./pages/leagues/FrenchLiguePage'))
+const MLSPage = React.lazy(() => import('./pages/leagues/MLSPage'))
 
 const App = () => {
     return (

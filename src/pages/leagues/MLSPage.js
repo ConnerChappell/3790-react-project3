@@ -1,6 +1,6 @@
 import * as React from 'react'
-import MLSLogo from '../assets/mls-logo.png'
-import AmericanTeamContainer from '../components/AmericanTeamContainer'
+import MLSLogo from '../../assets/mls-logo.png'
+import AmericanTeamContainer from '../../components/AmericanTeamContainer'
 import { Box, CardMedia, Typography} from '@mui/material'
 
 const MLSPage = () => {

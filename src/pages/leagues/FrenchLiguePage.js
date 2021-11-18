@@ -1,9 +1,9 @@
 import * as React from 'react'
-import GermanLogo from '../assets/german-bundesliga-logo.png'
-import GermanTeamContainer from '../components/GermanTeamContainer'
+import FrenchLogo from '../../assets/french-ligue-logo.png'
+import FrenchTeamContainer from '../../components/FrenchTeamContainer'
 import { Box, CardMedia, Typography} from '@mui/material'
 
-const GermanBundesligaPage = () => {
+const FrenchLiguePage = () => {
     return (
         <div>
             <Box
@@ -19,8 +19,8 @@ const GermanBundesligaPage = () => {
                 }}>
                 <CardMedia
                     component="img"
-                    image={GermanLogo}
-                    alt="German Bundesliga Logo"
+                    image={FrenchLogo}
+                    alt="French Ligue 1 Logo"
                     sx={{
                         width: 'auto',
                         height: 60,
@@ -28,13 +28,13 @@ const GermanBundesligaPage = () => {
                     }}
                 />
                 <Typography component="h1" variant="h3">
-                    German Bundesliga
+                    French Ligue 1
                 </Typography>
             </Box>
 
-            <GermanTeamContainer />
+            <FrenchTeamContainer />
         </div>
     )
 }
 
-export default GermanBundesligaPage
+export default FrenchLiguePage

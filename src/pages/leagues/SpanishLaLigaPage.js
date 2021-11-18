@@ -1,6 +1,6 @@
 import * as React from 'react'
-import SpanishLogo from '../assets/spanish-la-liga-logo.png'
-import SpanishTeamContainer from '../components/SpanishTeamContainer'
+import SpanishLogo from '../../assets/spanish-la-liga-logo.png'
+import SpanishTeamContainer from '../../components/SpanishTeamContainer'
 import { Box, CardMedia, Typography} from '@mui/material'
 
 const SpanishLaLigaPage = () => {

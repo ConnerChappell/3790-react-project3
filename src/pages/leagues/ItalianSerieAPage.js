@@ -1,9 +1,9 @@
 import * as React from 'react'
-import FrenchLogo from '../assets/french-ligue-logo.png'
-import FrenchTeamContainer from '../components/FrenchTeamContainer'
+import ItalianLogo from '../../assets/serie-a-logo.png'
+import ItalianTeamContainer from '../../components/ItalianTeamContainer'
 import { Box, CardMedia, Typography} from '@mui/material'
 
-const FrenchLiguePage = () => {
+const ItalianSerieAPage = () => {
     return (
         <div>
             <Box
@@ -19,8 +19,8 @@ const FrenchLiguePage = () => {
                 }}>
                 <CardMedia
                     component="img"
-                    image={FrenchLogo}
-                    alt="French Ligue 1 Logo"
+                    image={ItalianLogo}
+                    alt="Italian Serie A Logo"
                     sx={{
                         width: 'auto',
                         height: 60,
@@ -28,13 +28,13 @@ const FrenchLiguePage = () => {
                     }}
                 />
                 <Typography component="h1" variant="h3">
-                    French Ligue 1
+                    Italian Serie A
                 </Typography>
             </Box>
 
-            <FrenchTeamContainer />
+            <ItalianTeamContainer />
         </div>
     )
 }
 
-export default FrenchLiguePage
+export default ItalianSerieAPage

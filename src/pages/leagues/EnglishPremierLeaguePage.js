@@ -1,6 +1,6 @@
 import * as React from 'react'
-import EnglishLogo from '../assets/premier-league-logo.png'
-import EnglishTeamContainer from '../components/EnglishTeamContainer'
+import EnglishLogo from '../../assets/premier-league-logo.png'
+import EnglishTeamContainer from '../../components/EnglishTeamContainer'
 import { Box, Typography, CardMedia } from '@mui/material'
 
 const EnglishPremierLeagePage = () => {
