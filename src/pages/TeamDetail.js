@@ -1,11 +1,7 @@
 import * as React from 'react'
 import { useParams } from 'react-router-dom'
 import { useTeamContext } from '../contexts/TeamContext'
-import { Box, CardMedia, Typography, IconButton } from '@mui/material'
-import TwitterIcon from '@mui/icons-material/Twitter'
-import InstagramIcon from '@mui/icons-material/Instagram'
-import FacebookIcon from '@mui/icons-material/Facebook'
-import YouTubeIcon from '@mui/icons-material/YouTube'
+import { Box, CardMedia, Typography } from '@mui/material'
 
 const TeamDetail = () => {
     const params = useParams()
