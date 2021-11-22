@@ -1,7 +1,14 @@
 import { useIdentityContext } from 'react-netlify-identity-gotrue'
-import { Box, Typography, Card, CardMedia, CardContent } from '@mui/material'
+import { Link } from 'react-router-dom'
+import { Box, Typography, Card, CardMedia } from '@mui/material'
 import HelpIcon from '@mui/icons-material/Help'
 import HeaderImage from '../assets/soccer-app-header.jpg'
+import EnglishLogo from '../assets/premier-league-logo.png'
+import GermanLogo from '../assets/german-bundesliga-logo.png'
+import SpanishLogo from '../assets/spanish-la-liga-logo.png'
+import FrenchLogo from '../assets/french-ligue-logo.png'
+import ItalianLogo from '../assets/serie-a-logo.png'
+import MLSLogo from '../assets/mls-logo.png'
 
 const ContainerStyle = {
     display: 'flex',
@@ -316,9 +323,187 @@ const Home = () => {
             )}
 
             {identity.user && (
-                <Box>
-                    <h1>Welcome {identity.user?.user_metadata?.full_name}!</h1>
-                    <h2>Some links and stuff will be added here</h2>
+                // Page Container
+                <Box sx={ContainerStyle}>
+                    <Box
+                        sx={{
+                            position: 'relative',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            color: '#fff',
+                            backgroundSize: 'cover',
+                            backgroundRepeat: 'no-repeat',
+                            backgroundPosition: 'center',
+                            backgroundImage: `url(${HeaderImage})`,
+                            width: '100%',
+                            height: '400px',
+                        }}>
+                        <Box
+                            sx={{
+                                position: 'absolute',
+                                top: 0,
+                                bottom: 0,
+                                right: 0,
+                                left: 0,
+                                backgroundColor: 'rgba(0,0,0,.3)',
+                            }}
+                        />
+                        <Typography
+                            component="h1"
+                            variant="h2"
+                            gutterBottom
+                            sx={{
+                                fontWeight: 'bold',
+                                textShadow: '2px 3px 5px rgba(0,0,0,0.5)',
+                                zIndex: '99',
+                                mx: 'auto',
+                            }}>
+                            Welcome {identity.user?.user_metadata?.full_name}!
+                        </Typography>
+                        <Typography
+                            variant="h5"
+                            paragraph
+                            sx={{
+                                fontWeight: 'bold',
+                                textShadow: '2px 3px 5px rgba(0,0,0,0.5)',
+                                zIndex: '99',
+                                mb: 6,
+                            }}>
+                            Feel free to take a look around
+                        </Typography>
+                    </Box>
+
+                    <Typography
+                        component="h2"
+                        variant="h3"
+                        sx={{ mx: 'auto', mt: 4 }}>
+                        Leagues
+                    </Typography>
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            flexDirection: 'row',
+                            flexWrap: 'wrap',
+                            textAlign: 'center',
+                            mb: 5,
+                        }}>
+                        <Link
+                            to="/english-premier-league"
+                            style={{ textDecoration: 'none' }}>
+                            <Card sx={InitialCardStyle}>
+                                <CardMedia
+                                    component="img"
+                                    image={EnglishLogo}
+                                    alt="English Premier League Logo"
+                                    sx={{
+                                        width: 'auto',
+                                        height: 200,
+                                    }}
+                                />
+                                <Typography variant="h5" sx={{ mt: 2 }}>
+                                    English Premier League
+                                </Typography>
+                            </Card>
+                        </Link>
+
+                        <Link
+                            to="/german-bundesliga"
+                            style={{ textDecoration: 'none' }}>
+                            <Card sx={InitialCardStyle}>
+                                <CardMedia
+                                    component="img"
+                                    image={GermanLogo}
+                                    alt="German Bundesliga Logo"
+                                    sx={{
+                                        width: 'auto',
+                                        height: 200,
+                                    }}
+                                />
+                                <Typography variant="h5" sx={{ mt: 2 }}>
+                                    German Bundesliga
+                                </Typography>
+                            </Card>
+                        </Link>
+
+                        <Link
+                            to="/spanish-la-liga"
+                            style={{ textDecoration: 'none' }}>
+                            <Card sx={InitialCardStyle}>
+                                <CardMedia
+                                    component="img"
+                                    image={SpanishLogo}
+                                    alt="Spanish La Liga Logo"
+                                    sx={{
+                                        width: 'auto',
+                                        height: 200,
+                                    }}
+                                />
+                                <Typography variant="h5" sx={{ mt: 2 }}>
+                                    Spanish La Liga
+                                </Typography>
+                            </Card>
+                        </Link>
+
+                        <Link
+                            to="/italian-serie-a"
+                            style={{ textDecoration: 'none' }}>
+                            <Card sx={InitialCardStyle}>
+                                <CardMedia
+                                    component="img"
+                                    image={ItalianLogo}
+                                    alt="Italian Serie A Logo"
+                                    sx={{
+                                        width: 'auto',
+                                        height: 200,
+                                    }}
+                                />
+                                <Typography variant="h5" sx={{ mt: 2 }}>
+                                    Italian Serie A
+                                </Typography>
+                            </Card>
+                        </Link>
+
+                        <Link
+                            to="/french-ligue-1"
+                            style={{ textDecoration: 'none' }}>
+                            <Card sx={InitialCardStyle}>
+                                <CardMedia
+                                    component="img"
+                                    image={FrenchLogo}
+                                    alt="French Ligue 1 Logo"
+                                    sx={{
+                                        width: 'auto',
+                                        height: 200,
+                                    }}
+                                />
+                                <Typography variant="h5" sx={{ mt: 2 }}>
+                                    French Ligue 1
+                                </Typography>
+                            </Card>
+                        </Link>
+
+                        <Link
+                            to="/major-league-soccer"
+                            style={{ textDecoration: 'none' }}>
+                            <Card sx={InitialCardStyle}>
+                                <CardMedia
+                                    component="img"
+                                    image={MLSLogo}
+                                    alt="MLS Logo"
+                                    sx={{
+                                        width: 'auto',
+                                        height: 200,
+                                    }}
+                                />
+                                <Typography variant="h5" sx={{ mt: 2 }}>
+                                    Major League Soccer
+                                </Typography>
+                            </Card>
+                        </Link>
+                    </Box>
                 </Box>
             )}
         </>
