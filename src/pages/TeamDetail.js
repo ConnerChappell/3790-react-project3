@@ -42,21 +42,36 @@ const TeamDetail = () => {
                 sx={{
                     display: 'flex',
                     flexDirection: 'row',
+                    flexWrap: 'wrap',
                     justifyContent: 'space-between',
                     maxWidth: '1400px',
                     mx: 'auto',
+                    pb: 10,
                 }}>
                 {/* Sidebar stuff */}
                 <Box
                     sx={{
                         display: 'flex',
                         flexDirection: 'column',
-                        width: '400px',
+                        width: '375px',
                         mt: 4,
+                        mx: 'auto',
                         bgcolor: 'background.paper',
                         borderRadius: 1,
                         boxShadow: 4,
                     }}>
+                    <Box sx={{ m: 2, mb: 5 }}>
+                        <CardMedia
+                            component="img"
+                            image={team.strTeamLogo}
+                            alt="Team Logo"
+                            sx={{
+                                width: 200,
+                                height: 'auto',
+                                mx: 'auto',
+                            }}></CardMedia>
+                    </Box>
+
                     <Box sx={{ m: 2, mb: 5 }}>
                         <Typography variant="h6" sx={{ mb: 1 }}>
                             Location: {team.strStadiumLocation}
@@ -76,7 +91,7 @@ const TeamDetail = () => {
                         <CardMedia
                             component="img"
                             image={team.strTeamJersey}
-                            alt="Team Badge"
+                            alt="Team Jersey"
                             sx={{
                                 width: 200,
                                 height: 'auto',
@@ -88,23 +103,52 @@ const TeamDetail = () => {
                         <Typography variant="h6" sx={{ mb: 1 }}>
                             Stadium: {team.strStadium}
                         </Typography>
+                        <Typography variant="h6" sx={{ mb: 1 }}>
+                            Capacity: {team.intStadiumCapacity}
+                        </Typography>
                         <CardMedia
                             component="img"
                             image={team.strStadiumThumb}
-                            alt="Team Badge"
+                            alt="Team Stadium"
                             sx={{
                                 width: 300,
                                 height: 'auto',
                                 mx: 'auto',
                             }}></CardMedia>
-                        <Typography variant="h6" sx={{ mb: 1 }}>
-                            Capacity: {team.intStadiumCapacity}
-                        </Typography>
                     </Box>
-
                 </Box>
 
                 {/* Main stuff */}
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        width: '975px',
+                        height: 'auto',
+                        mt: 4,
+                        mx: 'auto',
+                        bgcolor: 'background.paper',
+                        borderRadius: 1,
+                        boxShadow: 4,
+                    }}>
+                    <Box sx={{ m: 2, mb: 5 }}>
+                        <Typography variant="h6" sx={{ mb: 1 }}>
+                            Description:
+                        </Typography>
+                        <Typography variant="body1" sx={{ mb: 1 }}>
+                            {team.strDescriptionEN}
+                        </Typography>
+                    </Box>
+
+                    <Box sx={{ m: 2, mb: 5 }}>
+                        <Typography variant="h6" sx={{ mb: 1 }}>
+                            Stadium Description:
+                        </Typography>
+                        <Typography variant="body1" sx={{ mb: 1 }}>
+                            {team.strStadiumDescription}
+                        </Typography>
+                    </Box>
+                </Box>
             </Box>
         </>
     )
