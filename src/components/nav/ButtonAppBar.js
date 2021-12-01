@@ -15,6 +15,7 @@ import {
     ListItemIcon,
     ListItemText,
     Divider,
+    Avatar,
 } from '@mui/material'
 import { useHistory } from 'react-router-dom'
 import { useIdentityContext } from 'react-netlify-identity-gotrue'
@@ -176,9 +177,22 @@ const ButtonAppBar = () => {
                         )}
 
                         {identity.user && (
-                            <Button color="inherit" onClick={identity.logout}>
-                                Logout
-                            </Button>
+                            <>
+                                <Button
+                                    color="inherit"
+                                    onClick={identity.logout}>
+                                    Logout
+                                </Button>
+                                <Avatar
+                                    sx={{
+                                        bgcolor: '#2b2c2d',
+                                        width: 30,
+                                        height: 30,
+                                        ml: 1,
+                                    }}>
+                                    {identity.user?.user_metadata?.full_name.slice(0, 1)}
+                                </Avatar>
+                            </>
                         )}
                     </Toolbar>
                 </AppBar>
