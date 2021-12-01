@@ -7,15 +7,26 @@ import ButtonAppBar from './components/nav/ButtonAppBar'
 import SignupForm from './components/login/SignupForm'
 import LoginForm from './components/login/LoginForm'
 import { TeamContextProvider } from './contexts/TeamContext'
+import ScrollToTop from './contexts/ScrollToTop'
 import NetlifyIdentityContext from 'react-netlify-identity-gotrue'
 import { Route, Switch } from 'react-router-dom'
 import { Box, CircularProgress } from '@mui/material'
 
-const EnglishPremierLeagePage = React.lazy(() => import('./pages/leagues/EnglishPremierLeaguePage'))
-const GermanBundesligaPage = React.lazy(() => import('./pages/leagues/GermanBundesligaPage'))
-const SpanishLaLigaPage = React.lazy(() => import('./pages/leagues/SpanishLaLigaPage'))
-const ItalianSerieAPage = React.lazy(() => import('./pages/leagues/ItalianSerieAPage'))
-const FrenchLiguePage = React.lazy(() => import('./pages/leagues/FrenchLiguePage'))
+const EnglishPremierLeagePage = React.lazy(() =>
+    import('./pages/leagues/EnglishPremierLeaguePage')
+)
+const GermanBundesligaPage = React.lazy(() =>
+    import('./pages/leagues/GermanBundesligaPage')
+)
+const SpanishLaLigaPage = React.lazy(() =>
+    import('./pages/leagues/SpanishLaLigaPage')
+)
+const ItalianSerieAPage = React.lazy(() =>
+    import('./pages/leagues/ItalianSerieAPage')
+)
+const FrenchLiguePage = React.lazy(() =>
+    import('./pages/leagues/FrenchLiguePage')
+)
 const MLSPage = React.lazy(() => import('./pages/leagues/MLSPage'))
 
 const App = () => {
@@ -65,9 +76,11 @@ const App = () => {
                                 <MLSPage />
                             </Route>
 
-                            <Route path="/team/:teamId" exact>
-                                <TeamDetail />
-                            </Route>
+                            <ScrollToTop>
+                                <Route path="/team/:teamId" exact>
+                                    <TeamDetail />
+                                </Route>
+                            </ScrollToTop>
 
                             <Route path="/signup">
                                 <SignupForm />
