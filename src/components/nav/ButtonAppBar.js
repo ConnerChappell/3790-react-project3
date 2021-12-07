@@ -128,7 +128,6 @@ const ButtonAppBar = () => {
                     position="static"
                     sx={{
                         backgroundColor: '#d00',
-                        textAlign: 'center',
                     }}>
                     <Toolbar>
                         <IconButton
@@ -136,7 +135,6 @@ const ButtonAppBar = () => {
                             edge="start"
                             color="inherit"
                             aria-label="menu"
-                            sx={{ mr: 2 }}
                             onClick={toggleDrawer}>
                             <MenuIcon />
                         </IconButton>
