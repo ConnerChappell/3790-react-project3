@@ -1,11 +1,13 @@
 import * as React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import { useTeamContext } from '../contexts/TeamContext'
-import { Box, CardMedia, Typography } from '@mui/material'
+import { Box, CardMedia, Typography, IconButton, Tooltip } from '@mui/material'
+import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 
 const TeamDetail = () => {
     const params = useParams()
     const teamData = useTeamContext()
+    const history = useHistory()
 
     const team = teamData.allTeams.find((item) => item.idTeam === params.teamId)
     console.log(team)
@@ -23,6 +25,11 @@ const TeamDetail = () => {
                     bgcolor: 'background.paper',
                     boxShadow: 3,
                 }}>
+                <Tooltip title="Go Back">
+                    <IconButton sx={{mr: 1}} onClick={history.goBack}>
+                        <ArrowBackIcon />
+                    </IconButton>
+                </Tooltip>
                 <CardMedia
                     component="img"
                     image={team.strTeamBadge}
