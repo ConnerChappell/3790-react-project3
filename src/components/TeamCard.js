@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { useHistory } from 'react-router-dom'
+import { useTeamContext } from '../contexts/TeamContext'
 import '../App.css'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
@@ -11,20 +12,26 @@ import InfoIcon from '@mui/icons-material/Info'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 
 const TeamCard = (props) => {
+    // local favorite for heart color change
     const [favorite, setFavorite] = React.useState(false)
+    // global favorite stuff
+    const { favorites, updateFavorites } = useTeamContext()
     const history = useHistory()
     const { team } = props
-
-    // Function that handles favorite click
-    const handleFavoriteClick = () => {
-        setFavorite(!favorite)
-        props.addToFavoritesFunction(team)
-    }
 
     // function that handles info click
     const handleInfoClick = () => {
         history.push(`/team/${team.idTeam}`)
     }
+
+    // Function that updates favorite click globally
+    const handleFavoriteClick = () => {
+        updateFavorites(team)
+    }
+    // side effect that adds favorite locally
+    React.useEffect(() => {
+        favorites.includes(team.strTeamBadge) ? setFavorite(true) : setFavorite(false)
+    }, [team.strTeamBadge, favorites])
 
     return (
         <Card

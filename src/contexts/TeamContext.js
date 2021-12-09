@@ -2,6 +2,7 @@ import * as React from 'react'
 import axios from 'axios'
 
 const TeamContext = React.createContext({
+    // context for teams
     englishTeams: [],
     germanTeams: [],
     spanishTeams: [],
@@ -9,9 +10,12 @@ const TeamContext = React.createContext({
     frenchTeams: [],
     americanTeams: [],
     allTeams: [],
+    // context for favorites
+    favorites: [],
 })
 
 export const TeamContextProvider = (props) => {
+    // gets all the teams for each league
     const [englishTeams, setEnglishTeams] = React.useState([])
     const [germanTeams, setGermanTeams] = React.useState([])
     const [spanishTeams, setSpanishTeams] = React.useState([])
@@ -19,6 +23,26 @@ export const TeamContextProvider = (props) => {
     const [frenchTeams, setFrenchTeams] = React.useState([])
     const [americanTeams, setAmericanTeams] = React.useState([])
     const [allTeams, setAllTeams] = React.useState([])
+
+    // favorites
+    const [favorites, setFavorites] = React.useState([])
+    // update favorites function
+    const updateFavorites = (team) => {
+        if (!favorites.includes(team.strTeamBadge)) {
+            console.log(`${team.strTeamBadge} was clicked`)
+            // Not a favorite so add it
+            setFavorites((prevState) => {
+                return [...prevState, team.strTeamBadge]
+            })
+        } else {
+            setFavorites(() => {
+                // Duplicate: filter and return new array
+                return favorites.filter((item) => {
+                    return item !== team.strTeamBadge
+                })
+            })
+        }
+    }
 
     React.useEffect(() => {
         // first define the async function
@@ -75,6 +99,9 @@ export const TeamContextProvider = (props) => {
                 frenchTeams,
                 americanTeams,
                 allTeams,
+                // favorites in context provider
+                favorites,
+                updateFavorites,
             }}>
             {props.children}
         </TeamContext.Provider>

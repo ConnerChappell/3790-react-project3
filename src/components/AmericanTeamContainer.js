@@ -6,28 +6,8 @@ import Typography from '@mui/material/Typography'
 import CardMedia from '@mui/material/CardMedia'
 
 const AmericanTeamContainer = () => {
-    // use state for adding favorites
-    const [favorites, setFavorites] = React.useState([])
     // extracts the team data from useTeamContext
     const teamData = useTeamContext()
-
-    // Add favorites function
-    const addToFavorites = (team) => {
-        if (!favorites.includes(team.strTeamBadge)) {
-            console.log(`${team.strTeamBadge} was clicked`)
-            // Not a favorite so add it
-            setFavorites((prevState) => {
-                return [...prevState, team.strTeamBadge]
-            })
-        } else {
-            setFavorites(() => {
-                // Duplicate: filter and return new array
-                return favorites.filter((item) => {
-                    return item !== team.strTeamBadge
-                })
-            })
-        }
-    }
 
     return (
         <div className="team-container">
@@ -58,8 +38,8 @@ const AmericanTeamContainer = () => {
                         flexWrap: 'wrap',
                         justifyContent: 'center',
                     }}>
-                    {favorites &&
-                        favorites.map((strTeamBadge) => {
+                    {teamData.favorites &&
+                        teamData.favorites.map((strTeamBadge) => {
                             return (
                                 <CardMedia
                                     component="img"
@@ -82,7 +62,6 @@ const AmericanTeamContainer = () => {
                 return (
                     <TeamCard
                         key={team.idTeam}
-                        addToFavoritesFunction={addToFavorites}
                         team={{ ...team }}
                     />
                 )
