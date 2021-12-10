@@ -30,8 +30,8 @@ const TeamCard = (props) => {
     }
     // side effect that adds favorite locally
     React.useEffect(() => {
-        favorites.includes(team.strTeamBadge) ? setFavorite(true) : setFavorite(false)
-    }, [team.strTeamBadge, favorites])
+        favorites.includes(team.idTeam) ? setFavorite(true) : setFavorite(false)
+    }, [team.idTeam, favorites])
 
     return (
         <Card

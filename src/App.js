@@ -28,6 +28,7 @@ const FrenchLiguePage = React.lazy(() =>
     import('./pages/leagues/FrenchLiguePage')
 )
 const MLSPage = React.lazy(() => import('./pages/leagues/MLSPage'))
+const Favorites = React.lazy(() => import('./pages/Favorites'))
 
 const App = () => {
     return (
@@ -74,6 +75,10 @@ const App = () => {
 
                             <Route path="/major-league-soccer">
                                 <MLSPage />
+                            </Route>
+
+                            <Route path="/favorites">
+                                <Favorites />
                             </Route>
 
                             <ScrollToTop>

@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
 import SportsSoccerIcon from '@mui/icons-material/SportsSoccer'
 import HomeIcon from '@mui/icons-material/Home'
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import {
     Drawer,
     List,
@@ -114,6 +115,17 @@ const ButtonAppBar = () => {
                                 <SportsSoccerIcon />
                             </ListItemIcon>
                             <ListItemText primary="Major League Soccer" />
+                        </ListItem>
+
+                        <ListItem
+                            button
+                            onClick={() =>
+                                handleNavChoice('favorites', true)
+                            }>
+                            <ListItemIcon>
+                                <FavoriteIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Favorites" />
                         </ListItem>
                     </>
                 )}

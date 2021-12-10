@@ -28,17 +28,17 @@ export const TeamContextProvider = (props) => {
     const [favorites, setFavorites] = React.useState([])
     // update favorites function
     const updateFavorites = (team) => {
-        if (!favorites.includes(team.strTeamBadge)) {
-            console.log(`${team.strTeamBadge} was clicked`)
+        if (!favorites.includes(team.idTeam)) {
+            console.log(`${team.idTeam} was clicked`)
             // Not a favorite so add it
             setFavorites((prevState) => {
-                return [...prevState, team.strTeamBadge]
+                return [...prevState, team.idTeam]
             })
         } else {
             setFavorites(() => {
                 // Duplicate: filter and return new array
                 return favorites.filter((item) => {
-                    return item !== team.strTeamBadge
+                    return item !== team.idTeam
                 })
             })
         }
