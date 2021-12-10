@@ -2,8 +2,6 @@ import * as React from 'react'
 import TeamCard from '../components/TeamCard'
 import { useTeamContext } from '../contexts/TeamContext'
 import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
-import CardMedia from '@mui/material/CardMedia'
 
 const GermanTeamContainer = () => {
     // extracts the team data from useTeamContext
@@ -21,44 +19,10 @@ const GermanTeamContainer = () => {
                     boxShadow: 4,
                     m: '0 20px 20px 20px',
                 }}>
-                <Typography
-                    variant="h4"
-                    component="h2"
-                    sx={{
-                        mx: 'auto',
-                        mt: 2,
-                        mb: 2,
-                    }}>
-                    Favorites
-                </Typography>
-
-                <Box
-                    sx={{
-                        display: 'flex',
-                        flexWrap: 'wrap',
-                        justifyContent: 'center',
-                    }}>
-                    {teamData.favorites &&
-                        teamData.favorites.map((strTeamBadge) => {
-                            return (
-                                <CardMedia
-                                    component="img"
-                                    image={strTeamBadge}
-                                    alt="Team Badge"
-                                    sx={{
-                                        width: 50,
-                                        height: 'auto',
-                                        mx: 1,
-                                        mb: 2,
-                                    }}
-                                />
-                            )
-                        })}
-                </Box>
             </Box>
 
             {teamData.germanTeams.map((team) => {
-                // Passes down team object as prop and handleOpen function as prop
+                // Passes down team object as prop
                 return (
                     <TeamCard
                         key={team.idTeam}
