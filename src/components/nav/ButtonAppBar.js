@@ -18,7 +18,7 @@ import {
     Divider,
     Avatar,
 } from '@mui/material'
-import { useHistory } from 'react-router-dom'
+import { useHistory, NavLink } from 'react-router-dom'
 import { useIdentityContext } from 'react-netlify-identity-gotrue'
 
 const ButtonAppBar = () => {
@@ -33,6 +33,11 @@ const ButtonAppBar = () => {
     const handleNavChoice = (pageLink, shouldToggle) => {
         history.push(`/${pageLink}`)
         if (shouldToggle) toggleDrawer()
+    }
+
+    const navLinkStyle = {
+        textDecoration: 'none',
+        color: '#fff',
     }
 
     const drawerItemList = () => (
@@ -188,11 +193,14 @@ const ButtonAppBar = () => {
 
                         {identity.user && (
                             <>
-                                <Button
-                                    color="inherit"
-                                    onClick={identity.logout}>
-                                    Logout
-                                </Button>
+                                <NavLink to='/' style={navLinkStyle}>
+                                    <Button
+                                        color="inherit"
+                                        onClick={identity.logout}>
+                                        Logout
+                                    </Button>
+                                </NavLink>
+                                
                                 <Avatar
                                     sx={{
                                         bgcolor: '#2b2c2d',
