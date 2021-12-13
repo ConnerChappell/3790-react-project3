@@ -1,7 +1,7 @@
 import * as React from 'react'
 import axios from 'axios'
 
-const TeamContext = React.createContext({
+const SoccerContext = React.createContext({
     // context for teams
     englishTeams: [],
     germanTeams: [],
@@ -133,7 +133,7 @@ export const TeamContextProvider = (props) => {
     }, [])
 
     return (
-        <TeamContext.Provider
+        <SoccerContext.Provider
             value={{
                 // teams
                 englishTeams,
@@ -154,8 +154,8 @@ export const TeamContextProvider = (props) => {
                 frenchTable,
             }}>
             {props.children}
-        </TeamContext.Provider>
+        </SoccerContext.Provider>
     )
 }
 
-export const useTeamContext = () => React.useContext(TeamContext)
+export const useSoccerContext = () => React.useContext(SoccerContext)

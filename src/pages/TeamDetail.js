@@ -1,15 +1,15 @@
 import * as React from 'react'
 import { useParams, useHistory } from 'react-router-dom'
-import { useTeamContext } from '../contexts/TeamContext'
+import { useSoccerContext } from '../contexts/SoccerContext'
 import { Box, CardMedia, Typography, IconButton, Tooltip } from '@mui/material'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 
 const TeamDetail = () => {
     const params = useParams()
-    const teamData = useTeamContext()
+    const soccerData = useSoccerContext()
     const history = useHistory()
 
-    const team = teamData.allTeams.find((item) => item.idTeam === params.teamId)
+    const team = soccerData.allTeams.find((item) => item.idTeam === params.teamId)
     console.log(team)
 
     return (

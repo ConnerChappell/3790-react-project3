@@ -1,16 +1,16 @@
 import * as React from 'react'
 import TeamCard from './TeamCard'
-import { useTeamContext } from '../contexts/TeamContext'
+import { useSoccerContext } from '../contexts/SoccerContext'
 import Box from '@mui/material/Box'
 
 const SpanishTeamContainer = () => {
     // extracts the team data from useTeamContext
-    const teamData = useTeamContext()
+    const soccerData = useSoccerContext()
 
     return (
         <Box className="team-container">
 
-            {teamData.spanishTeams.map((team) => {
+            {soccerData.spanishTeams.map((team) => {
                 // Passes down team object as prop
                 return (
                     <TeamCard

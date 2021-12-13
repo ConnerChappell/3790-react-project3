@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { Box, Typography, Fade } from '@mui/material'
 import TeamCard from '../components/TeamCard'
-import { useTeamContext } from '../contexts/TeamContext'
+import { useSoccerContext } from '../contexts/SoccerContext'
 
 const Favorites = () => {
     const [matchedFavorites, setMatchedFavorites] = React.useState([])
-    const { allTeams, favorites } = useTeamContext()
+    const { allTeams, favorites } = useSoccerContext()
 
     // side effect that filters favorites and renders on favorites page
     React.useEffect(() => {

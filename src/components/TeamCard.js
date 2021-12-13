@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useHistory } from 'react-router-dom'
-import { useTeamContext } from '../contexts/TeamContext'
+import { useSoccerContext } from '../contexts/SoccerContext'
 import '../App.css'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
@@ -15,7 +15,7 @@ const TeamCard = (props) => {
     // local favorite for heart color change
     const [favorite, setFavorite] = React.useState(false)
     // global favorite stuff
-    const { favorites, updateFavorites } = useTeamContext()
+    const { favorites, updateFavorites } = useSoccerContext()
     const history = useHistory()
     const { team } = props
 

@@ -8,10 +8,10 @@ import {
    Box,
    CardMedia,
 } from '@mui/material'
-import { useTeamContext } from '../../contexts/TeamContext'
+import { useSoccerContext } from '../../contexts/SoccerContext'
  
 const FrenchTableContainer = () => {
-   const teamData = useTeamContext()
+   const soccerData = useSoccerContext()
  
    return (
        <Table
@@ -36,7 +36,7 @@ const FrenchTableContainer = () => {
                </TableRow>
            </TableHead>
            <TableBody>
-               {teamData.frenchTable.map((team) => {
+               {soccerData.frenchTable.map((team) => {
                    return (
                        <TableRow key={team.idTeam}>
                            <TableCell align="left">{team.intRank}</TableCell>
