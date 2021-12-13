@@ -1,6 +1,7 @@
 import * as React from 'react'
 import ItalianLogo from '../../assets/serie-a-logo.png'
 import ItalianTeamContainer from '../../components/ItalianTeamContainer'
+import ItalianTableContainer from '../../components/tableCotainers/ItalianTableContainer'
 import { Box, CardMedia, Typography, Fade } from '@mui/material'
 
 const ItalianSerieAPage = () => {
@@ -33,8 +34,9 @@ const ItalianSerieAPage = () => {
                     </Typography>
                 </Box>
 
-                <Box>
+                <Box sx={{display: 'flex',}}>
                     <ItalianTeamContainer />
+                    <ItalianTableContainer />
                 </Box>
             </div>
         </Fade>

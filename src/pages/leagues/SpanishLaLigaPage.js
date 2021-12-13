@@ -1,6 +1,7 @@
 import * as React from 'react'
 import SpanishLogo from '../../assets/spanish-la-liga-logo.png'
 import SpanishTeamContainer from '../../components/SpanishTeamContainer'
+import SpanishTableContainer from '../../components/tableCotainers/SpanishTableContainer'
 import { Box, CardMedia, Typography, Fade } from '@mui/material'
 
 const SpanishLaLigaPage = () => {
@@ -33,8 +34,9 @@ const SpanishLaLigaPage = () => {
                     </Typography>
                 </Box>
 
-                <Box>
+                <Box sx={{display: 'flex',}}>
                     <SpanishTeamContainer />
+                    <SpanishTableContainer />
                 </Box>
             </div>
         </Fade>

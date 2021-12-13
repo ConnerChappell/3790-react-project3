@@ -1,6 +1,7 @@
 import * as React from 'react'
 import EnglishLogo from '../../assets/premier-league-logo.png'
 import EnglishTeamContainer from '../../components/EnglishTeamContainer'
+import EnglishTableContainer from '../../components/tableCotainers/EnglishTableContainer'
 import { Box, Typography, CardMedia, Fade } from '@mui/material'
 
 const EnglishPremierLeagePage = () => {
@@ -33,8 +34,9 @@ const EnglishPremierLeagePage = () => {
                     </Typography>
                 </Box>
                 
-                <Box>
+                <Box sx={{display: 'flex',}}>
                     <EnglishTeamContainer />
+                    <EnglishTableContainer />
                 </Box>
             </div>
         </Fade>

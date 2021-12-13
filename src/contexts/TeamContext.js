@@ -12,6 +12,13 @@ const TeamContext = React.createContext({
     allTeams: [],
     // context for favorites
     favorites: [],
+    // context for league tables
+    englishTable: [],
+    germanTable: [],
+    spanishTable: [],
+    italianTable: [],
+    frenchTable: [],
+
 })
 
 export const TeamContextProvider = (props) => {
@@ -23,9 +30,15 @@ export const TeamContextProvider = (props) => {
     const [frenchTeams, setFrenchTeams] = React.useState([])
     const [americanTeams, setAmericanTeams] = React.useState([])
     const [allTeams, setAllTeams] = React.useState([])
-
     // favorites
     const [favorites, setFavorites] = React.useState([])
+    // gets all the table data for each league
+    const [englishTable, setEnglishTable] = React.useState([])
+    const [germanTable, setGermanTable] = React.useState([])
+    const [spanishTable, setSpanishTable] = React.useState([])
+    const [italianTable, setItalianTable] = React.useState([])
+    const [frenchTable, setFrenchTable] = React.useState([])
+
     // update favorites function
     const updateFavorites = (team) => {
         if (!favorites.includes(team.idTeam)) {
@@ -47,12 +60,20 @@ export const TeamContextProvider = (props) => {
     React.useEffect(() => {
         // first define the async function
         const fetchSoccer = async () => {
+            // fetches teams for each league
             const englishTeamsURL = `/.netlify/functions/soccer?option=search_all_teams.php?l=English%20Premier%20League`
             const germanTeamsURL = `/.netlify/functions/soccer?option=search_all_teams.php?l=German%20Bundesliga`
             const spanishTeamsURL = `/.netlify/functions/soccer?option=search_all_teams.php?l=Spanish%20La%20Liga`
             const italianTeamsURL = `/.netlify/functions/soccer?option=search_all_teams.php?l=Italian%20Serie%20A`
             const frenchTeamsURL = `/.netlify/functions/soccer?option=search_all_teams.php?l=French%20Ligue%201`
             const americanTeamsURL = `/.netlify/functions/soccer?option=search_all_teams.php?l=American%20Major%20League%20Soccer`
+
+            // fetches table data for each league
+            const englishTableURL = `/.netlify/functions/soccer?option=lookuptable.php?l=4328&s=2021-2022`
+            const germanTableURL = `/.netlify/functions/soccer?option=lookuptable.php?l=4331&s=2021-2022`
+            const spanishTableURL = `/.netlify/functions/soccer?option=lookuptable.php?l=4335&s=2021-2022`
+            const italianTableURL = `/.netlify/functions/soccer?option=lookuptable.php?l=4332&s=2021-2022`
+            const frenchTableURL = `/.netlify/functions/soccer?option=lookuptable.php?l=4334&s=2021-2022`
 
             try {
                 // English teams
@@ -74,6 +95,22 @@ export const TeamContextProvider = (props) => {
                 const americanTeamsResponse = await axios.get(americanTeamsURL)
                 const americanTeams = await americanTeamsResponse.data.teams
 
+                // English table
+               const englishTableResponse = await axios.get(englishTableURL)
+               const englishTable = await englishTableResponse.data.table
+               // German table
+               const germanTableResponse = await axios.get(germanTableURL)
+               const germanTable = await germanTableResponse.data.table
+               // Spanish table
+               const spanishTableResponse = await axios.get(spanishTableURL)
+               const spanishTable = await spanishTableResponse.data.table
+               // Italian table
+               const italianTableResponse = await axios.get(italianTableURL)
+               const italianTable = await italianTableResponse.data.table
+               // French table
+               const frenchTableResponse = await axios.get(frenchTableURL)
+               const frenchTable = await frenchTableResponse.data.table
+
                 setEnglishTeams(englishTeams)
                 setGermanTeams(germanTeams)
                 setSpanishTeams(spanishTeams)
@@ -81,6 +118,12 @@ export const TeamContextProvider = (props) => {
                 setFrenchTeams(frenchTeams)
                 setAmericanTeams(americanTeams)
                 setAllTeams([...englishTeams, ...germanTeams, ...spanishTeams, ...italianTeams, ...frenchTeams, ...americanTeams])
+                setEnglishTable(englishTable)
+                setGermanTable(germanTable)
+                setSpanishTable(spanishTable)
+                setItalianTable(italianTable)
+                setFrenchTable(frenchTable)
+
             } catch (error) {
                 console.log(error)
             }
@@ -92,6 +135,7 @@ export const TeamContextProvider = (props) => {
     return (
         <TeamContext.Provider
             value={{
+                // teams
                 englishTeams,
                 germanTeams,
                 spanishTeams,
@@ -102,6 +146,12 @@ export const TeamContextProvider = (props) => {
                 // favorites in context provider
                 favorites,
                 updateFavorites,
+                // tables
+                englishTable,
+                germanTable,
+                spanishTable,
+                italianTable,
+                frenchTable,
             }}>
             {props.children}
         </TeamContext.Provider>

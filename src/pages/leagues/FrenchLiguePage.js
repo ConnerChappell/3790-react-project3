@@ -1,6 +1,7 @@
 import * as React from 'react'
 import FrenchLogo from '../../assets/french-ligue-logo.png'
 import FrenchTeamContainer from '../../components/FrenchTeamContainer'
+import FrenchTableContainer from '../../components/tableCotainers/FrenchTableContainer'
 import { Box, CardMedia, Typography, Fade } from '@mui/material'
 
 const FrenchLiguePage = () => {
@@ -33,8 +34,9 @@ const FrenchLiguePage = () => {
                     </Typography>
                 </Box>
                 
-                <Box>
+                <Box sx={{display: 'flex',}}>
                     <FrenchTeamContainer />
+                    <FrenchTableContainer />
                 </Box>
             </div>
         </Fade>

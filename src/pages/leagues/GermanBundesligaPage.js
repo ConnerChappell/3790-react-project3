@@ -1,6 +1,7 @@
 import * as React from 'react'
 import GermanLogo from '../../assets/german-bundesliga-logo.png'
 import GermanTeamContainer from '../../components/GermanTeamContainer'
+import GermanTableContainer from '../../components/tableCotainers/GermanTableContainer'
 import { Box, CardMedia, Typography, Fade } from '@mui/material'
 
 const GermanBundesligaPage = () => {
@@ -33,8 +34,9 @@ const GermanBundesligaPage = () => {
                     </Typography>
                 </Box>
 
-                <Box>
+                <Box sx={{display: 'flex',}}>
                     <GermanTeamContainer />
+                    <GermanTableContainer />
                 </Box>
             </div>
         </Fade>
