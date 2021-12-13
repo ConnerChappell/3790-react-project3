@@ -32,8 +32,10 @@ const FrenchLiguePage = () => {
                         French Ligue 1
                     </Typography>
                 </Box>
-
-                <FrenchTeamContainer />
+                
+                <Box>
+                    <FrenchTeamContainer />
+                </Box>
             </div>
         </Fade>
     )

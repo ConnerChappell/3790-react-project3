@@ -33,7 +33,9 @@ const MLSPage = () => {
                     </Typography>
                 </Box>
 
-                <AmericanTeamContainer />
+                <Box>
+                    <AmericanTeamContainer />
+                </Box>
             </div>
         </Fade>
     )

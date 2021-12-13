@@ -8,18 +8,7 @@ const ItalianTeamContainer = () => {
     const teamData = useTeamContext()
 
     return (
-        <div className="team-container">
-            <Box
-                sx={{
-                    width: '81.5%',
-                    height: 'auto',
-                    textAlign: 'center',
-                    bgcolor: 'background.paper',
-                    borderRadius: 1,
-                    boxShadow: 4,
-                    m: '0 20px 20px 20px',
-                }}>
-            </Box>
+        <Box className="team-container">
 
             {teamData.italianTeams.map((team) => {
                 // Passes down team object as prop
@@ -31,7 +20,7 @@ const ItalianTeamContainer = () => {
                 )
             })}
 
-        </div>
+        </Box>
     )
 }
 

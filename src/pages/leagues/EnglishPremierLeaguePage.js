@@ -32,8 +32,10 @@ const EnglishPremierLeagePage = () => {
                         English Premier League
                     </Typography>
                 </Box>
-
-                <EnglishTeamContainer />
+                
+                <Box>
+                    <EnglishTeamContainer />
+                </Box>
             </div>
         </Fade>
     )

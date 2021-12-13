@@ -33,7 +33,9 @@ const ItalianSerieAPage = () => {
                     </Typography>
                 </Box>
 
-                <ItalianTeamContainer />
+                <Box>
+                    <ItalianTeamContainer />
+                </Box>
             </div>
         </Fade>
     )

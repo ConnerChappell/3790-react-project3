@@ -33,7 +33,9 @@ const GermanBundesligaPage = () => {
                     </Typography>
                 </Box>
 
-                <GermanTeamContainer />
+                <Box>
+                    <GermanTeamContainer />
+                </Box>
             </div>
         </Fade>
     )

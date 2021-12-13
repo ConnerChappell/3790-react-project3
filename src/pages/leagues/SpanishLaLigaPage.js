@@ -33,7 +33,9 @@ const SpanishLaLigaPage = () => {
                     </Typography>
                 </Box>
 
-                <SpanishTeamContainer />
+                <Box>
+                    <SpanishTeamContainer />
+                </Box>
             </div>
         </Fade>
     )
