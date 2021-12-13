@@ -46,13 +46,13 @@ export const TeamContextProvider = (props) => {
 
     React.useEffect(() => {
         // first define the async function
-        const fetchTeams = async () => {
-            const englishTeamsURL = `/.netlify/functions/teams?league=search_all_teams.php?l=English%20Premier%20League`
-            const germanTeamsURL = `/.netlify/functions/teams?league=search_all_teams.php?l=German%20Bundesliga`
-            const spanishTeamsURL = `/.netlify/functions/teams?league=search_all_teams.php?l=Spanish%20La%20Liga`
-            const italianTeamsURL = `/.netlify/functions/teams?league=search_all_teams.php?l=Italian%20Serie%20A`
-            const frenchTeamsURL = `/.netlify/functions/teams?league=search_all_teams.php?l=French%20Ligue%201`
-            const americanTeamsURL = `/.netlify/functions/teams?league=search_all_teams.php?l=American%20Major%20League%20Soccer`
+        const fetchSoccer = async () => {
+            const englishTeamsURL = `/.netlify/functions/soccer?option=search_all_teams.php?l=English%20Premier%20League`
+            const germanTeamsURL = `/.netlify/functions/soccer?option=search_all_teams.php?l=German%20Bundesliga`
+            const spanishTeamsURL = `/.netlify/functions/soccer?option=search_all_teams.php?l=Spanish%20La%20Liga`
+            const italianTeamsURL = `/.netlify/functions/soccer?option=search_all_teams.php?l=Italian%20Serie%20A`
+            const frenchTeamsURL = `/.netlify/functions/soccer?option=search_all_teams.php?l=French%20Ligue%201`
+            const americanTeamsURL = `/.netlify/functions/soccer?option=search_all_teams.php?l=American%20Major%20League%20Soccer`
 
             try {
                 // English teams
@@ -86,7 +86,7 @@ export const TeamContextProvider = (props) => {
             }
         }
         // then call the function
-        fetchTeams()
+        fetchSoccer()
     }, [])
 
     return (
