@@ -36,70 +36,69 @@ const App = () => {
             <NetlifyIdentityContext url="https://3790-react-soccer-app-conner-chappell.netlify.app">
                 <TeamContextProvider>
                     <ButtonAppBar />
+                    <ScrollToTop>
+                        <Suspense
+                            fallback={
+                                <Box
+                                    sx={{
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        mt: 5,
+                                    }}>
+                                    <CircularProgress color="error" />
+                                </Box>
+                            }>
+                            <Switch>
+                                <Route path="/" exact>
+                                    <Home />
+                                </Route>
 
-                    <Suspense
-                        fallback={
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    mt: 5,
-                                }}>
-                                <CircularProgress color="error" />
-                            </Box>
-                        }>
-                        <Switch>
-                            <Route path="/" exact>
-                                <Home />
-                            </Route>
+                                <Route path="/english-premier-league">
+                                    <EnglishPremierLeagePage />
+                                </Route>
 
-                            <Route path="/english-premier-league">
-                                <EnglishPremierLeagePage />
-                            </Route>
+                                <Route path="/german-bundesliga">
+                                    <GermanBundesligaPage />
+                                </Route>
 
-                            <Route path="/german-bundesliga">
-                                <GermanBundesligaPage />
-                            </Route>
+                                <Route path="/spanish-la-liga">
+                                    <SpanishLaLigaPage />
+                                </Route>
 
-                            <Route path="/spanish-la-liga">
-                                <SpanishLaLigaPage />
-                            </Route>
+                                <Route path="/italian-serie-a">
+                                    <ItalianSerieAPage />
+                                </Route>
 
-                            <Route path="/italian-serie-a">
-                                <ItalianSerieAPage />
-                            </Route>
+                                <Route path="/french-ligue-1">
+                                    <FrenchLiguePage />
+                                </Route>
 
-                            <Route path="/french-ligue-1">
-                                <FrenchLiguePage />
-                            </Route>
+                                <Route path="/major-league-soccer">
+                                    <MLSPage />
+                                </Route>
 
-                            <Route path="/major-league-soccer">
-                                <MLSPage />
-                            </Route>
+                                <Route path="/favorites">
+                                    <Favorites />
+                                </Route>
 
-                            <Route path="/favorites">
-                                <Favorites />
-                            </Route>
-
-                            <ScrollToTop>
                                 <Route path="/team/:teamId" exact>
                                     <TeamDetail />
                                 </Route>
-                            </ScrollToTop>
 
-                            <Route path="/signup">
-                                <SignupForm />
-                            </Route>
+                                <Route path="/signup">
+                                    <SignupForm />
+                                </Route>
 
-                            <Route path="/login">
-                                <LoginForm />
-                            </Route>
+                                <Route path="/login">
+                                    <LoginForm />
+                                </Route>
 
-                            <Route path="*">
-                                <NotFound />
-                            </Route>
-                        </Switch>
-                    </Suspense>
+                                <Route path="*">
+                                    <NotFound />
+                                </Route>
+                            </Switch>
+                        </Suspense>
+                    </ScrollToTop>
                 </TeamContextProvider>
             </NetlifyIdentityContext>
         </div>
