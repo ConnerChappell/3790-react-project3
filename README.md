@@ -4,7 +4,7 @@ Deployed on [Netlify](https://3790-react-soccer-app-conner-chappell.netlify.app/
 
 Created using [TheSportsDB API](https://www.thesportsdb.com/)
 
-### Requirements/Features:
+## Requirements/Features:
 
 #### Effectively use conditional logic and JavaScript array methods (filter, map, redue, find) to rend large lists
 
