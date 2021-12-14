@@ -38,7 +38,7 @@ Created using [TheSportsDB API](https://www.thesportsdb.com/)
 
 - [Line 326](https://github.com/ConnerChappell/3790-react-soccer-app/blob/main/src/pages/Home.js) – Fade transition component is used in the Home.js page
 - [Line 9](https://github.com/ConnerChappell/3790-react-soccer-app/blob/main/src/pages/leagues/EnglishPremierLeaguePage.js) – Fade transition component is used in EnglishPremierLeaguePage.js as well as the other league pages
-- Add teamdetail fade
+- [Line 26, 59](https://github.com/ConnerChappell/3790-react-soccer-app/blob/main/src/pages/TeamDetail.js) – Fade transition component is used in TeamDetail.js
 - [Line 20](https://github.com/ConnerChappell/3790-react-soccer-app/blob/main/src/pages/Favorites.js) – Fade transition component is used in the Favorites.js page
 
 #### Connect to a server using Netlify functions and display retrieved data including at least 5 item details (accessed by details route) in your UI
