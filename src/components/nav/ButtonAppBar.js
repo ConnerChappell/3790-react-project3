@@ -8,7 +8,7 @@ import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
 import SportsSoccerIcon from '@mui/icons-material/SportsSoccer'
 import HomeIcon from '@mui/icons-material/Home'
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteIcon from '@mui/icons-material/Favorite'
 import {
     Drawer,
     List,
@@ -53,20 +53,19 @@ const ButtonAppBar = () => {
                     </ListItemIcon>
                     <ListItemText primary="Home" />
                 </ListItem>
+                <ListItem
+                    button
+                    onClick={() =>
+                        handleNavChoice('english-premier-league', true)
+                    }>
+                    <ListItemIcon>
+                        <SportsSoccerIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="English Premier League" />
+                </ListItem>
 
                 {identity.user && (
                     <>
-                        <ListItem
-                            button
-                            onClick={() =>
-                                handleNavChoice('english-premier-league', true)
-                            }>
-                            <ListItemIcon>
-                                <SportsSoccerIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="English Premier League" />
-                        </ListItem>
-
                         <ListItem
                             button
                             onClick={() =>
@@ -124,9 +123,7 @@ const ButtonAppBar = () => {
 
                         <ListItem
                             button
-                            onClick={() =>
-                                handleNavChoice('favorites', true)
-                            }>
+                            onClick={() => handleNavChoice('favorites', true)}>
                             <ListItemIcon>
                                 <FavoriteIcon />
                             </ListItemIcon>
@@ -193,14 +190,14 @@ const ButtonAppBar = () => {
 
                         {identity.user && (
                             <>
-                                <NavLink to='/' style={navLinkStyle}>
+                                <NavLink to="/" style={navLinkStyle}>
                                     <Button
                                         color="inherit"
                                         onClick={identity.logout}>
                                         Logout
                                     </Button>
                                 </NavLink>
-                                
+
                                 <Avatar
                                     sx={{
                                         bgcolor: '#2b2c2d',
@@ -208,7 +205,10 @@ const ButtonAppBar = () => {
                                         height: 30,
                                         ml: 1,
                                     }}>
-                                    {identity.user?.user_metadata?.full_name.slice(0, 1)}
+                                    {identity.user?.user_metadata?.full_name.slice(
+                                        0,
+                                        1
+                                    )}
                                 </Avatar>
                             </>
                         )}

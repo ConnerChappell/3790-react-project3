@@ -92,10 +92,25 @@ const Home = () => {
                             sx={{
                                 fontWeight: 'bold',
                                 textShadow: '2px 3px 5px rgba(0,0,0,0.5)',
+                                textAlign: 'center',
+                                zIndex: '99',
+                                mb: 3,
+                                mx: 2,
+                            }}>
+                            Please signup or login to view the entire app's content
+                        </Typography>
+                        <Typography
+                            variant="h5"
+                            paragraph
+                            sx={{
+                                fontWeight: 'bold',
+                                textShadow: '2px 3px 5px rgba(0,0,0,0.5)',
+                                textAlign: 'center',
                                 zIndex: '99',
                                 mb: 6,
+                                mx: 2,
                             }}>
-                            Please signup or login to view content
+                            Or take a sneak peak by visiting the English Premier League page
                         </Typography>
                     </Box>
 
@@ -114,16 +129,24 @@ const Home = () => {
                             textAlign: 'center',
                             mb: 5,
                         }}>
-                        <Card sx={InitialCardStyle}>
-                            <HelpIcon
-                                sx={{
-                                    fontSize: 200,
-                                }}
-                            />
-                            <Typography variant="h5">
-                                Signup or login to visit
-                            </Typography>
-                        </Card>
+                        <Link
+                            to="/english-premier-league"
+                            style={{ textDecoration: 'none' }}>
+                            <Card sx={InitialCardStyle}>
+                                <CardMedia
+                                    component="img"
+                                    image={EnglishLogo}
+                                    alt="English Premier League Logo"
+                                    sx={{
+                                        width: 'auto',
+                                        height: 200,
+                                    }}
+                                />
+                                <Typography variant="h5" sx={{ mt: 2 }}>
+                                    English Premier League
+                                </Typography>
+                            </Card>
+                        </Link>
 
                         <Card sx={InitialCardStyle}>
                             <HelpIcon
